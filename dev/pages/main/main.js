@@ -1,3 +1,4 @@
+//1
 const Main={
     template:require('./main.html'),
     data(){
