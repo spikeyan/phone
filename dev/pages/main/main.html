@@ -1,0 +1,22 @@
+<div class="main_container">
+    <div class="bg" style="background-image: url('res/img/bg.jpg')"></div>
+    <div class="head">
+
+    </div>
+
+    <div class="body">
+        <div class="box" v-for="x in items">
+            <div class="icon" :style="{backgroundImage:x.src}"></div>
+            <h4>{{x.name}}</h4>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="box" v-for="x in fitem">
+            <div class="icon" :style="{backgroundImage:x.src}"></div>
+            <h4>{{x.name}}</h4>
+        </div>
+    </div>
+
+</div>
