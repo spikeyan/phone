@@ -1,4 +1,4 @@
-//2
+//3
 const Main={
     template:require('./main.html'),
     data(){
