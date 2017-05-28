@@ -7,17 +7,21 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" href="final.css" type="text/css">
+        <link rel="stylesheet" href="lib/swiper.min.css" type="text/css">
         <title>Sphone</title>
     </head>
     <body>
     <div id="app">
-    	<router-view></router-view>
+        <transition name="fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
 	</div>
 
 	<!--<script src="cordova.js"></script>-->
 	<script src="lib/polyfill.min.js"></script>
-	<script src="lib/vue.js"></script>
-	<script src="lib/vue-router.js"></script>
+	<script src="lib/vue.min.js"></script>
+	<script src="lib/vue-router.min.js"></script>
+	<script src="lib/swiper.min.js"></script>
 	<script src="lib.js"></script>
 	<script src="final.js"></script>
         

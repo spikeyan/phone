@@ -1,21 +1,28 @@
 <div class="main_container">
-    <div class="bg" style="background-image: url('res/img/bg.jpg')"></div>
+    <div class="bg" :style="{backgroundImage:icon(bg)}"></div>
     <div class="head">
-
+        {{time}}
     </div>
 
     <div class="body">
-        <div class="box" v-for="x in items">
-            <div class="icon" :style="{backgroundImage:x.src}"></div>
-            <h4>{{x.name}}</h4>
+
+        <div class="swiper-wrapper">
+        <div class="swiper-slide" v-for="x in arr2arr(items,16)">
+
+        <div class="box" v-for="y in x">
+            <div class="icon" :style="{backgroundImage:icon(y)}"></div>
+            <h4>{{y}}</h4>
         </div>
 
+        </div>
+        </div>
     </div>
 
+
     <div class="footer">
-        <div class="box" v-for="x in fitem">
-            <div class="icon" :style="{backgroundImage:x.src}"></div>
-            <h4>{{x.name}}</h4>
+        <div class="box" v-for="x in fitem" @click="goto(x.url)">
+                <div class="icon" :style="{backgroundImage:ficon(x.src)}"></div>
+                <h4>{{x.name}}</h4>
         </div>
     </div>
 
