@@ -10,7 +10,7 @@ const Main={
     data(){
         return{
             items:[
-                1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,8,12,13,14,3,4,5,6,7,1,2,3,13,14,15,16,12,1,2,3,4,5,6,7,8,9,10,16
+                {name:'manga',src:'manga',url:'/manga'}
             ],
             fitem:[
                 {name:'PHONE',src:1,url:'/'},
@@ -23,6 +23,9 @@ const Main={
         }
     },
     methods:{
+        desk(val){
+            return "url('res/desk/"+val+".jpg')"
+        },
         icon(val){
             return "url('res/img/"+val+".jpg')"
         },

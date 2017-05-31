@@ -4,6 +4,7 @@
 import './main/main.styl';
 import './com/com.styl';
 import './login/login.styl';
+import './manga/manga.styl';
 
 import './setting/setting.styl';
 import './setting/index/index.styl';

@@ -1,0 +1,14 @@
+<div class="manga_container">
+    <top-nav titleName="Manga"></top-nav>
+    <div class="child_container">
+        <div class="box" v-for="x in items" @click="goto(x.href)">
+            <div class="top">
+                <div class="title">{{x.title}}</div>
+                <div class="info">{{x.date}} {{x.type}}</div>
+            </div>
+            <div class="bottom">
+                {{x.content}}
+            </div>
+        </div>
+    </div>
+</div>

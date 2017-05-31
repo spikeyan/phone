@@ -10,8 +10,8 @@
         <div class="swiper-slide" v-for="x in arr2arr(items,16)">
 
         <div class="box" v-for="y in x">
-            <div class="icon" :style="{backgroundImage:icon(y)}"></div>
-            <h4>{{y}}</h4>
+            <div class="icon" :style="{backgroundImage:desk(y.src)}" @click="goto(y.url)"></div>
+            <h4>{{y.name}}</h4>
         </div>
 
         </div>

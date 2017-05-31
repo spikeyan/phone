@@ -11,7 +11,8 @@ const router=new VueRouter({
         {path:'/setting',component:require('../pages/setting/setting'),children:[
             {path:'index',component:require('../pages/setting/index/index')},
             {path:'wallpaper',component:require('../pages/setting/wallpaper/wallpaper')},
-        ]}
+        ]},
+        {path:'/manga',component(resolve){require(['../pages/manga/manga'],resolve)}}
     ]
 });
 

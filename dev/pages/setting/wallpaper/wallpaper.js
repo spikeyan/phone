@@ -3,14 +3,13 @@
  */
 import {change} from '../../../config/config'
 import R from '../../../arch/router';
+import scroll from '../../../component/scrolltop/scrolltop'
 
 const WallPaper={
     template:require('./wallpaper.html'),
     data(){
         return {
-            items:[
-                1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,'bg','f1','f2','f3','f4'
-            ]
+            items:[]
         }
     },
     methods:{
@@ -22,8 +21,13 @@ const WallPaper={
             R.push('/')
         }
     },
+    created(){
+        for(let i = 1;i<32;i++){
+            this.items.push(i)
+        }
+    },
     mounted(){
-
+        scroll('.child_container');
     }
 }
 

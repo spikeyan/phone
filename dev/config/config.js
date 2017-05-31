@@ -1,7 +1,7 @@
 /**
  * Wallpaper edit module
  */
-var bg=localStorage.bg==undefined?'bg':localStorage.bg;
+var bg=localStorage.bg==undefined?13:localStorage.bg;
 
 function set(val){
     bg=localStorage.bg=val

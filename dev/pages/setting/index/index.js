@@ -2,13 +2,14 @@
  * THIS IS Setting's index page
  */
 import R from '../../../arch/router';
+import scroll from '../../../component/scrolltop/scrolltop'
 
 const Index={
     template:require('./index.html'),
     data(){
         return {
             items:[
-                {name:'Wall-Paper',url:'wallpaper'}
+                {name:'Wall-Paper',url:'wallpaper'},
             ]
         }
     },
@@ -18,7 +19,7 @@ const Index={
         }
     },
     mounted(){
-
+        scroll('.child_container')
     }
 }
 

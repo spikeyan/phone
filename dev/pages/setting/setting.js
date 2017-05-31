@@ -9,14 +9,11 @@ const Setting={
     template:require('./setting.html'),
     data(){
         return {
-            hello:'hi im from controller',
-            show:true
+
         }
     },
     methods:{
-        go(){
-            change(1)
-        }
+
     },
     mounted(){
 

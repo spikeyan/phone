@@ -1,10 +1,18 @@
 /**
  * KOA static resources servers listening on PORT 1026
  */
+const mangaNews = require('./server/dmzj');
+var commonRes={
+    success:false,
+    message:'contents not found',
+    response:{}
+}
 
 const Koa = require('koa');
+const Router = require('koa-router');
 const serve = require('koa-static');
 const app = new Koa();
+const router = new Router();
 
 /**
  *   maxage Browser cache max-age in milliseconds. defaults to 0
@@ -20,9 +28,25 @@ const app = new Koa();
 //     console.log(`${ctx.method} ${ctx.url}`);
 // });
 app.use(serve('www'));
+app.use(router.routes())
+    .use(router.allowedMethods());
+
+router.get('/get-manga-news',function(ctx,next){
+
+    let list=mangaNews(ctx.query.page);
+    if(!list){
+        ctx.body=commonRes;
+    }else{
+        let trueRes=JSON.parse(JSON.stringify(commonRes));
+        trueRes.response=list;
+        trueRes.success=true;
+        trueRes.message='fine baby';
+        ctx.body=JSON.stringify(trueRes);
+    }
+
+});
 
 
 app.listen(1026);
-
 console.log('listening on port 1026');
 
