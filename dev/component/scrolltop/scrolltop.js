@@ -1,48 +1,53 @@
 /**
  * scrolltop plugin
  */
-import $ from 'jquery';
 
-function scrollTop(ele,top,bottom){
-    var start;
-    var begin;
-    var con=$(ele);
-    var rate=1;
-    var kamui=false;
-    con.on('touchstart',function(e){
-        start=e.touches[0].clientY;
-        begin=false;
-        $(this).css('transition','')
-        rate=1;
-    }).on('touchend',function(){
-        if(begin){
-            $(this).css('transition','all 0.3s').css('margin-top',0).css('margin-bottom',0);begin=false;
-            if(kamui==1){
-                if(top){top()}
-                kamui=false
-            }else if(kamui==2){
-                if(bottom){bottom()}
-                kamui=false
-            }
-        }
-    }).on('touchmove',function(e){
-        if($(this).scrollTop()==0){
-            rate=rate-0.02
-            if(!begin){start=e.touches[0].clientY;begin=true}
-            let range=(e.touches[0].clientY-start)*rate;
-            $(this).css('margin-top',`${range}px`)
-            if(range>100){kamui=1}
-        }else if(con[0].scrollHeight==con[0].clientHeight+con[0].scrollTop){
-            rate=rate-0.02
-            if(!begin){start=e.touches[0].clientY;begin=true}
-            let range=(e.touches[0].clientY-start)*rate;
-            $(this).css('margin-bottom',`${-range}px`)
-            if(range<-100){kamui=2}
-        }
+var startPoint;
+var cache;
+
+function rootBind(ele,top,bottom){
+    startPoint=0;
+    bindTouch.call(document.querySelector(ele),['touchstart','touchmove','touchend'],top,bottom)
+}
+
+function bindTouch(arr,top,bottom){
+    arr.map(e=>{
+        this.addEventListener(e,judge.bind(this,top,bottom))
     })
+}
 
+function judge(top,bottom,e){
+
+    if(this.scrollTop==0){
+        scroll.call(this,e,top)
+    }else if(this.scrollTop+10>=this.scrollHeight-this.clientHeight){
+        scroll.call(this,e,bottom)
+    }else{
+        if(this.style.transform!=''){
+            this.style.transform=''
+        }
+    }
+}
+
+function scroll(e,fn){
+    var y
+    if(e.touches.length){y=e.touches[0].clientY}
+    if(e.type=='touchstart'){
+        this.style.transition='';
+        startPoint=y
+    }else if(e.type=='touchmove'){
+        if(y>startPoint){this.style.transform=`translateY(${(y-startPoint)/2}px)`}
+        if(y<startPoint){this.style.transform=`translateY(${(y-startPoint)/2}px)`}
+    }else{
+        this.style.transition='all 0.3s';
+        this.style.transform='';
+        if(typeof fn =='function'){
+            fn()
+        }
+    }
 }
 
 
-export default scrollTop
+
+export default rootBind
 

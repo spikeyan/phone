@@ -5,13 +5,18 @@ const Login={
     template:require('./login.html'),
     data(){
         return {
-            hello:'hi im from controller',
-            show:true
+            show:true,
+            modal:{
+                type:'mes',
+                title:'this is a alert',
+                display:false,
+                content:'im content place'
+            }
         }
     },
     methods:{
-        go(){
-            go(this.hello);
+        login(){
+            this.modal.display=true;
         }
     },
     mounted(){

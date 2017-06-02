@@ -19,7 +19,7 @@ const Index={
         }
     },
     mounted(){
-        scroll('.child_container')
+        scroll('.index_container .child_container')
     }
 }
 

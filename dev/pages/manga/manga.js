@@ -3,11 +3,12 @@
  */
 import $ from 'jquery';
 import scroll from '../../component/scrolltop/scrolltop';
+import api from '../../config/apis';
 
 var currentPage=1;
 
 function ajax(success,fail){
-    $.get('http://192.168.80.128:1026/get-manga-news?page='+currentPage,e=>{
+    $.get(api.getMangaNews+currentPage,e=>{
         var result=JSON.parse(e);
         if(result.success){
             currentPage++;
@@ -35,7 +36,7 @@ const Com={
         ajax((e)=>{this.items=e},()=>{},true)
     },
     mounted(){
-        scroll('.child_container',()=>{currentPage=1;ajax((e)=>{
+        scroll('.manga_container .child_container',()=>{currentPage=1;ajax((e)=>{
             this.items=e
         })},()=>{ajax((e)=>{e.map((e)=>{
             this.items.push(e)

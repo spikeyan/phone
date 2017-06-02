@@ -27,7 +27,7 @@ const WallPaper={
         }
     },
     mounted(){
-        scroll('.child_container');
+        scroll('.wallpaper_container .child_container');
     }
 }
 
