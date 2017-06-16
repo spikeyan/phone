@@ -3,6 +3,7 @@
  */
 
 import './modal.styl';
+import $ from 'jquery';
 
 Vue.component('modal',{
     template:require('./modal.html'),
@@ -11,23 +12,26 @@ Vue.component('modal',{
             modal:{
                 title:'default',
                 content:'default',
-                type:'mes'
-            }
+                type:'mes',
+            },
+            display:false
         }
     },
     methods:{
-        back(){
-            history.back()
+        show(){
+            this.display=true;
         },
         fade(){
-            this.modal.display=false;
+            this.display=false;
+        },
+        hidemodal(e){
+           if(e.target==$('.modal_bk')[0]){
+               this.display=false;
+           }
+        },
+        confirm(){
+
         }
     },
     props:['modal'],
-    mounted(){
-        alert(100);
-        if(this.modal.type=='mes'){
-            setTimeout(()=>{this.modal.display=false},2000)
-        }
-    }
-})
+});

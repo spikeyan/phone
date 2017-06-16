@@ -1,14 +1,16 @@
 <transition name="modal">
-    <div class="modal_container" v-if="modal.display">
-        <div class="modal-head">
-            {{modal.title}}
-        </div>
-        <div class="modal-content">
-            {{modal.content}}
-        </div>
-        <div class="modal-bottom" v-if="modal.type!='mes'">
-            <span>confirm</span>
-            <span @click="fade()">cancel</span>
+    <div class="modal_bk" v-if="display" @click="hidemodal">
+        <div class="modal_container">
+            <div class="modal-head">
+                {{modal.title}}
+            </div>
+            <div class="modal-content">
+                {{modal.content}}
+            </div>
+            <div class="modal-bottom" v-if="modal.type!='mes'">
+                <span @click="confirm">confirm</span>
+                <span @click="fade()">cancel</span>
+            </div>
         </div>
     </div>
 </transition>

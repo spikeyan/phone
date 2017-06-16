@@ -2,7 +2,7 @@
  * Created by kamui on 17-5-25.
  */
 import './main/main.styl';
-import './com/com.styl';
+import './time/time.styl';
 import './login/login.styl';
 import './manga/manga.styl';
 

@@ -8,7 +8,7 @@ var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     entry: {
         final:'./dev/index.js',
-        lib:['jquery']
+        lib:['jquery','d3']
     },
     output: {
         filename: '[name].js',
