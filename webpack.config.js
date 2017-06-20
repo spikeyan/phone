@@ -5,6 +5,8 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: {
         final:'./dev/index.js',
@@ -36,5 +38,10 @@ module.exports = {
             name:"lib"
         }),
         new UglifyJSPlugin(),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './dev/index.html',
+            hash:true
+        })
     ]
 };

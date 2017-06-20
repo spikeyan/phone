@@ -27,6 +27,7 @@ const router = new Router();
 // app.use((ctx,next)=>{
 //     console.log(`${ctx.method} ${ctx.url}`);
 // });
+// app.use(serve('www',{maxage:259200000}));
 app.use(serve('www'));
 app.use(router.routes())
     .use(router.allowedMethods());

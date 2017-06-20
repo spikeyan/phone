@@ -51,16 +51,17 @@ const Com={
             .attr("width", width)
             .attr("height", height)
             .append("g")
-            .attr("transform", "translate(" + width / 2 + "," + height / 3 + ")");
+            .attr('id','clockFace')
+            .attr("transform", `translate(${width / 2},${height / 3})`)
 
         var digitalClock = d3.select('#clock svg')
             .append('g')
-            .attr("transform", "translate(" + width / 2 + "," + height / 1.25 + ")")
+            .attr('transform',`translate(${width / 2},${height / 1.25})`)
             .append('text')
             .attr('class','white')
             .style("text-anchor", "middle");
 
-        var field = svg.selectAll("g")
+        var field = svg.selectAll("#clockFace")
             .data(fields)
             .enter().append("g");
 
