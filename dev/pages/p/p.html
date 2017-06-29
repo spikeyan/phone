@@ -1,0 +1,18 @@
+<div class="p_container">
+    <top-nav titleName="Pagination"></top-nav>
+    <div class="child_container">
+        <div class="content">
+            <div v-for="x in news" class="news">{{x}}</div>
+        </div>
+
+        <div class="page">
+            <div class="prev" @click="prev()">prev</div>
+
+            <div v-for="x in pageList" class="pagi" :style="{backgroundColor:check(x)}" @click="jump(x)">
+                {{x}}
+            </div>
+
+            <div class="next" @click="next()">next</div>
+        </div>
+    </div>
+</div>

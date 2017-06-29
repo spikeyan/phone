@@ -2,7 +2,7 @@
     <top-nav titleName="Manga"></top-nav>
     <div class="child_container">
         <div class="box" v-for="x in items" @click="goto(x.href)">
-            <div class="top">
+            <div class="top" :style="x.type|mangaType">
                 <div class="title">{{x.title}}</div>
                 <div class="info">{{x.date}} {{x.type}}</div>
             </div>

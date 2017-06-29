@@ -1,5 +1,5 @@
 <div class="main_container">
-    <div class="bg" :style="{backgroundImage:icon(bg)}"></div>
+    <div class="bg" :style="bg|icon"></div>
     <div class="head">
         {{time}}
     </div>
@@ -7,10 +7,10 @@
     <div class="body">
 
         <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="x in arr2arr(items,16)">
+        <div class="swiper-slide" v-for="x in items">
 
         <div class="box" v-for="y in x">
-            <div class="icon" :style="{backgroundImage:desk(y.src)}" @click="goto(y.url)"></div>
+            <div class="icon" :style="y.src|desk" @click="goto(y.url)"></div>
             <h4>{{y.name}}</h4>
         </div>
 
@@ -21,7 +21,7 @@
 
     <div class="footer">
         <div class="box" v-for="x in fitem" @click="goto(x.url)">
-                <div class="icon" :style="{backgroundImage:ficon(x.src)}"></div>
+                <div class="icon" :style="x.src|ficon"></div>
                 <h4>{{x.name}}</h4>
         </div>
     </div>

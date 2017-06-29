@@ -13,7 +13,7 @@ var mangaNews='http://news.dmzj.com/p';
 var mangaNewsList=[];
 
 
-get();
+// get();
 /**
  *    *    *    *    *    *
  ┬    ┬    ┬    ┬    ┬    ┬

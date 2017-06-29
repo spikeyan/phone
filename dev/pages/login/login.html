@@ -2,9 +2,9 @@
     <modal :modal="modal"></modal>
     <top-nav titleName="LOGIN"></top-nav>
     <div class="title">username</div>
-    <input type="text">
+    <input type="text" v-model="username">
     <div class="title">password</div>
-    <input type="password">
+    <input type="password" v-model="password">
     <br>
     <button class="login_btn" @click="login()">LOG IN</button>
 </div>

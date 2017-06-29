@@ -1,7 +1,7 @@
 <div class="wallpaper_container">
     <top-nav titleName="Wall-Paper Setting"></top-nav>
     <div class="child_container">
-        <div class="show" v-for="x in items" :style="{backgroundImage:icon(x)}" @click="choose(x)"></div>
+        <div class="show" v-for="x in items" :style="x|icon" @click="choose(x)"></div>
     </div>
 
 </div>

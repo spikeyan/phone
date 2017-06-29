@@ -9,9 +9,11 @@ const Main={
     template:require('./main.html'),
     data(){
         return{
-            items:[
-                {name:'manga',src:'manga',url:'/manga'}
+            itemLists:[
+                {name:'manga',src:'manga',url:'/manga'},
+                {name:'p',src:'p',url:'/p'}
             ],
+            items:null,
             fitem:[
                 {name:'PHONE',src:1,url:'/'},
                 {name:'TIME',src:2,url:'/com'},
@@ -23,24 +25,15 @@ const Main={
         }
     },
     methods:{
-        desk(val){
-            return "url('res/desk/"+val+".jpg')"
-        },
-        icon(val){
-            return "url('res/img/"+val+".jpg')"
-        },
-        ficon(val){
-            return "url('res/img/f"+val+".jpg')"
-        },
         goto(url){
             R.push(url)
-        },
-        arr2arr(arr,count){
-            return K.arr2arr(arr,count)
         },
         timeBuz(){
             this.time = new Date().toString().slice(0,25)
         }
+    },
+    created(){
+        this.items=K.arr2arr(this.itemLists,16)
     },
     mounted(){
         new Swiper('.main_container .body');
@@ -48,6 +41,17 @@ const Main={
     },
     destroyed(){
         clearInterval(watch)
+    },
+    filters:{
+        desk(val){
+            return "background-image:url('res/desk/"+val+".jpg')"
+        },
+        icon(val){
+            return "background-image:url('res/img/"+val+".jpg')"
+        },
+        ficon(val){
+            return "background-image:url('res/img/f"+val+".jpg')"
+        }
     }
 };
 

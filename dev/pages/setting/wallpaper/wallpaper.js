@@ -13,9 +13,6 @@ const WallPaper={
         }
     },
     methods:{
-        icon(val){
-            return "url('res/img/"+val+".jpg')"
-        },
         choose(url){
             change(url);
             R.push('/')
@@ -28,6 +25,11 @@ const WallPaper={
     },
     mounted(){
         scroll('.wallpaper_container .child_container');
+    },
+    filters:{
+        icon(val){
+            return "background-image:url('res/img/"+val+".jpg')"
+        }
     }
 }
 
